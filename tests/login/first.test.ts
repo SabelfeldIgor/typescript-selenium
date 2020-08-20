@@ -35,7 +35,7 @@ describe("Login form", function () {
     browser = new SeleniumUtils(driver);
   });
 
-  it("simple Selenium test", async function () {
+  it("Autorization form", async function () {
     await driver.get('http://dev2.lab-27.ru');
     await driver.sleep(3000);
     driver.findElement(By.css('[ng-model="ctrl.email"]')).sendKeys('w@w.w');
@@ -43,7 +43,7 @@ describe("Login form", function () {
     (await driver.findElement(By.css('[type="button"]'))).click()
     await driver.sleep(3000);
     let blockOnLoginPage = driver.findElement(By.css('login-access-component'));
-    let isExist = blockOnLoginPage.then(()=> true, ()=> false);
+    let isExist = blockOnLoginPage.then(() => true, () => false);
     (await driver.findElement(By.css('[ng-click="exit()"]'))).click()
     await assert.equal(await isExist, false);
   });
